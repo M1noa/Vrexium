@@ -1,6 +1,5 @@
-/out
-/.idea
-/build
 /lib
 *.jar
+!injector.jar
+!vrex_build.jar
 *.class
