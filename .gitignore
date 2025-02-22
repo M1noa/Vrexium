@@ -1,3 +1,6 @@
-/openectasy.iml
 /out
 /.idea
+/build
+/lib
+*.jar
+*.class
