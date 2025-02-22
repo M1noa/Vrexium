@@ -1,4 +1,4 @@
-package fr.bodyalhoha.ectasy.utils;
+package meow.minoa.vrexium.utils;
 
 import java.util.*;
 

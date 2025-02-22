@@ -1,8 +1,8 @@
-package fr.bodyalhoha.gui;
+package meow.minoa.gui;
 
-import fr.bodyalhoha.ectasy.Main;
-import fr.bodyalhoha.ectasy.utils.Injector;
-import fr.bodyalhoha.ectasy.utils.OptionsParser;
+import meow.minoa.vrexium.Main;
+import meow.minoa.vrexium.utils.Injector;
+import meow.minoa.vrexium.utils.OptionsParser;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -19,11 +19,11 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EctasyGUI {
+public class VrexiumGUI {
 
     public JFrame frame;
 
-    public EctasyGUI(){
+    public VrexiumGUI(){
 
         try{
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -31,7 +31,7 @@ public class EctasyGUI {
 
         }
 
-        this.frame = new JFrame("Ectasy");
+        this.frame = new JFrame("Vrexium");
         JPanel panel = new JPanel();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 450);
@@ -42,7 +42,7 @@ public class EctasyGUI {
 
 
         JLabel label = new JLabel();
-        label.setText("OpenEctasy");
+        label.setText("Vrexium");
         label.setForeground(Color.WHITE);
         label.setFont(new Font("Segoe UI", Font.PLAIN, 22));
         label.setVerticalTextPosition(SwingConstants.TOP);

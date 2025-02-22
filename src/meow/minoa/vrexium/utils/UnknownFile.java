@@ -1,4 +1,4 @@
-package fr.bodyalhoha.ectasy.utils;
+package mrow.m1noa.vrexium.utils;
 
 import org.apache.commons.io.IOUtils;
 

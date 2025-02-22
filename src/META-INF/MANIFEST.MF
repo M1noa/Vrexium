@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: fr.bodyalhoha.ectasy.Main
+Main-Class: mrow.m1noa.vrexium.Main
 

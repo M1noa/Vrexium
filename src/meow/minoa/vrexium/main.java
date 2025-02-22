@@ -1,9 +1,9 @@
-package fr.bodyalhoha.ectasy;
+package meow.minoa.vrexium;
 
-import fr.bodyalhoha.ectasy.utils.Injector;
-import fr.bodyalhoha.ectasy.utils.JarLoader;
-import fr.bodyalhoha.ectasy.utils.OptionsParser;
-import fr.bodyalhoha.gui.EctasyGUI;
+import meow.minoa.vrexium.utils.Injector;
+import meow.minoa.vrexium.utils.JarLoader;
+import meow.minoa.vrexium.utils.OptionsParser;
+import meow.minoa.gui.VrexiumGUI;
 import jdk.internal.org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;
 
@@ -36,9 +36,9 @@ public class Main {
         // Parse and interpret the command line arguments
         OptionsParser parser = new OptionsParser(args, has, bools);
 
-        // If the nogui flag is not present, create an instance of the EctasyGUI class and return
+        // If the nogui flag is not present, create an instance of the VrexiumGUI class and return
         if(!parser.getBool("nogui")){
-            new EctasyGUI();
+            new VrexiumGUI();
             return;
         }
 

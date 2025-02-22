@@ -1,4 +1,4 @@
-package fr.bodyalhoha.ectasy.utils;
+package mrow.m1noa.vrexium.utils;
 
 import java.io.File;
 import java.io.InputStream;

