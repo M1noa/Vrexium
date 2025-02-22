@@ -1,16 +1,15 @@
-<div align="center"><h1>OpenEctasy</h1></div>
+<div align="center"><h1>Vrexium</h1></div>
 <div align="center">
-    <a href="https://github.com/Body-Alhoha/OpenEctasy/issues"><img alt="Open issues" src="https://img.shields.io/github/issues-raw/Body-Alhoha/OpenEctasy"/></a>
-    <a href="https://github.com/Body-Alhoha/OpenEctasy/releases/latest"><img alt="GitHub downloads" src="https://img.shields.io/github/downloads/Body-Alhoha/OpenEctasy/total"></a>
-    <img alt="Code size" src="https://img.shields.io/github/languages/code-size/Body-Alhoha/OpenEctasy"/>
+    <a href="https://github.com/M1noa/Vrexium/issues"><img alt="Open issues" src="https://img.shields.io/github/issues-raw/M1noa/Vrexium"/></a>
+    <a href="https://github.com/M1noa/Vrexium/releases/latest"><img alt="GitHub downloads" src="https://img.shields.io/github/downloads/M1noa/Vrexium/total"></a>
+    <img alt="Code size" src="https://img.shields.io/github/languages/code-size/M1noa/Vrexium"/>
     <a href="https://discord.gg/monkeys"><img alt="Discord" src="https://img.shields.io/discord/1085292120899862638"></a>
 </div>
 <hr>
-<b>OpenEctasy</b> is a lightweight, open source version of Ectasy (now discontinued)<br>
-Inspired by <a href="https://github.com/VoxelHax/OpenBukloit">OpenBukloit</a>
+<b>Vrexium</b> is a fork of <a href="https://github.com/Body-Alhoha/OpenEctasy">OpenEctasy</a>, a lightweight, open source version of the open source version of 🪦 Ectasy<br>
 
 ## Injecting
-Download `injector.jar` from the [latest release](https://github.com/Body-Alhoha/OpenEctasy/releases/latest) and open it. Click the `Select` button and select your plugin, then click the `Inject` button.
+Download `injector.jar` from the [latest release](https://github.com/M1noa/Vrexium/releases/latest) and open it. Click the `Select` button and select your plugin, then click the `Inject` button.
 
 ## Discord Webhook
 You can also use a discord webhook, it will produce a message like this: <br><br>
@@ -27,4 +26,13 @@ You will need the following libraries: <br>
 - https://commons.apache.org/proper/commons-io/
 - https://asm.ow2.io/
 
-Feel free to contribute
+## Contributing
+Pull requests are highly welcomed and needed! As I have limited Java experience, community contributions are especially valuable. If you have Java expertise and want to help improve Vrexium, please consider contributing.
+
+Feel free to:
+- Submit bug fixes
+- Implement new features
+- Improve code quality
+- Enhance documentation
+
+Your contributions will help make Vrexium better for everyone!
