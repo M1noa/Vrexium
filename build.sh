@@ -3,6 +3,10 @@
 echo "Vrexium Build Script (Unix)"
 echo "=========================="
 
+# Clean up previous build artifacts
+echo "Cleaning up previous builds..."
+rm -f injector.jar vrex_build.jar
+
 # Create lib directory if it doesn't exist
 mkdir -p lib
 
@@ -44,7 +48,34 @@ javac -cp "lib/commons-io.jar:lib/asm.jar:lib/asm-tree.jar:lib/asm-commons.jar:l
 # Create injector JAR
 echo "Creating injector JAR..."
 cd build
-jar cvfm ../injector.jar ../src/META-INF/MANIFEST.MF meow/minoa/vrexium/Main.class meow/minoa/vrexium/utils/Injector.class meow/minoa/vrexium/utils/JarLoader.class meow/minoa/vrexium/utils/Loader.class meow/minoa/vrexium/utils/OptionsParser.class meow/minoa/gui/VrexiumGUI.class
+
+# Copy and extract ASM dependencies
+cp ../lib/asm*.jar .
+for jar in asm*.jar; do
+    jar xf "$jar"
+    if [ $? -ne 0 ]; then
+        echo "Error extracting $jar"
+        exit 1
+    fi
+done
+
+# Verify ASM classes are extracted
+if [ ! -d "org/objectweb/asm" ]; then
+    echo "Error: ASM classes not found after extraction"
+    exit 1
+fi
+
+rm asm*.jar
+
+# Create the injector JAR with ASM classes included
+jar cvfm ../injector.jar ../src/META-INF/MANIFEST.MF \
+    meow/minoa/vrexium/Main*.class \
+    meow/minoa/vrexium/utils/Injector*.class \
+    meow/minoa/vrexium/utils/JarLoader*.class \
+    meow/minoa/vrexium/utils/Loader*.class \
+    meow/minoa/vrexium/utils/OptionsParser*.class \
+    meow/minoa/gui/VrexiumGUI*.class \
+    org/objectweb/asm/**/*.class
 cd ..
 
 # Create Vrexium plugin JAR

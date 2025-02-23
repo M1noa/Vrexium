@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
 Main-Class: meow.minoa.vrexium.Main
-Class-Path: asm.jar asm-tree.jar asm-commons.jar commons-io.jar spigot-api.jar
+Class-Path: .
 

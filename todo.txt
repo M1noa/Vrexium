@@ -1,0 +1,10 @@
+*FIX THE INJECTOR*
+
+settings//options in the injector sutch as
+    whitelist usernames
+    if server is whitelisted whitelist the users option
+    webhook customazation (eh not that important smh)
+
+remove the output option and just output as <filename>_vrex.jar
+
+save settings to a file via json
