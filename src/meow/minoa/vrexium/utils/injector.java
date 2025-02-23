@@ -1,7 +1,7 @@
 package meow.minoa.vrexium.utils;
 
 import meow.minoa.vrexium.Main;
-import jdk.internal.org.objectweb.asm.Opcodes;
+import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;
 
 import java.io.File;

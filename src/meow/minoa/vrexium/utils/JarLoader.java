@@ -1,4 +1,4 @@
-package mrow.m1noa.vrexium.utils;
+package meow.minoa.vrexium.utils;
 
 import java.io.File;
 import java.io.InputStream;

@@ -1,5 +1,4 @@
-/lib
-*.jar
+/build
+/org
 !injector.jar
 !vrex_build.jar
-*.class

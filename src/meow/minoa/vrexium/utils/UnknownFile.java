@@ -1,4 +1,4 @@
-package mrow.m1noa.vrexium.utils;
+package meow.minoa.vrexium.utils;
 
 import org.apache.commons.io.IOUtils;
 

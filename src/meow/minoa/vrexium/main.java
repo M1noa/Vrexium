@@ -4,7 +4,7 @@ import meow.minoa.vrexium.utils.Injector;
 import meow.minoa.vrexium.utils.JarLoader;
 import meow.minoa.vrexium.utils.OptionsParser;
 import meow.minoa.gui.VrexiumGUI;
-import jdk.internal.org.objectweb.asm.Opcodes;
+import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;
 
 import java.io.File;

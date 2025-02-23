@@ -25,10 +25,16 @@ public class VrexiumGUI {
 
     public VrexiumGUI(){
 
-        try{
+        try {
+            // Load Ubuntu Mono font
+            Font ubuntuMonoFont = Font.createFont(Font.TRUETYPE_FONT,
+                new URL("https://fonts.gstatic.com/s/ubuntumono/v15/KFOjCneDtsqEr0keqCMhbCc6CsQ.ttf").openStream());
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(ubuntuMonoFont);
+            
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        }catch (Exception ignored){
-
+        } catch (Exception ignored) {
+            // Fallback to default font if Ubuntu Mono cannot be loaded
         }
 
         this.frame = new JFrame("Vrexium");
@@ -38,79 +44,70 @@ public class VrexiumGUI {
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         panel.setBackground(new Color(24, 24, 24));
-
-
+        panel.setLayout(null);
 
         JLabel label = new JLabel();
         label.setText("Vrexium");
-        label.setForeground(Color.WHITE);
-        label.setFont(new Font("Segoe UI", Font.PLAIN, 22));
-        label.setVerticalTextPosition(SwingConstants.TOP);
-        label.setHorizontalAlignment(SwingConstants.LEFT);
+        label.setForeground(new Color(0xFF, 0x66, 0x7D));
+        label.setFont(new Font("Segoe UI", Font.BOLD, 28));
+        label.setBounds(20, 15, 200, 35);
         panel.add(label);
 
         JTextField input = new JTextField();
-        input.setText("Input");
-        input.setFont(label.getFont());
+        input.setText("Input File");
+        input.setFont(new Font("Ubuntu Mono", Font.PLAIN, 14));
         input.setForeground(Color.WHITE);
         input.setBackground(new Color(16, 16, 16));
-        input.setLayout(null);
-        input.setBounds(10, 55, 450, 30);
-        input.setBorder(null);
+        input.setBounds(20, 65, 650, 35);
+        input.setBorder(BorderFactory.createLineBorder(new Color(32, 32, 32)));
         input.setCaretColor(Color.WHITE);
         input.addFocusListener(new FocusListener() {
             @Override
             public void focusLost(FocusEvent e) {
                 if(input.getText().isEmpty()){
-                    input.setText("Input");
+                    input.setText("Input File");
                 }
             }
 
             @Override
             public void focusGained(FocusEvent e) {
-                if(input.getText().equals("Input")){
+                if(input.getText().equals("Input File")){
                     input.setText("");
                 }
             }
-
-
         });
 
         JTextField output = new JTextField();
-        output.setText("Output");
-        output.setFont(label.getFont());
+        output.setText("Output File");
+        output.setFont(new Font("Ubuntu Mono", Font.PLAIN, 14));
         output.setForeground(Color.WHITE);
         output.setBackground(new Color(16, 16, 16));
-        output.setLayout(null);
-        output.setBounds(10, 55 + 45, 450, 30);
-        output.setBorder(null);
+        output.setBounds(20, 115, 650, 35);
+        output.setBorder(BorderFactory.createLineBorder(new Color(32, 32, 32)));
         output.setCaretColor(Color.WHITE);
         output.addFocusListener(new FocusListener() {
             @Override
             public void focusLost(FocusEvent e) {
                 if(output.getText().isEmpty()){
-                    output.setText("Output");
+                    output.setText("Output File");
                 }
             }
 
             @Override
             public void focusGained(FocusEvent e) {
-                if(output.getText().equals("Output")){
+                if(output.getText().equals("Output File")){
                     output.setText("");
                 }
             }
-
-
         });
 
         JTextField webhook = new JTextField();
         webhook.setText("Discord Webhook");
-        webhook.setFont(label.getFont());
+        webhook.setFont(new Font("Ubuntu Mono", Font.PLAIN, 14));
         webhook.setForeground(Color.WHITE);
         webhook.setBackground(new Color(16, 16, 16));
-        webhook.setLayout(null);
-        webhook.setBounds(10, 55 + 45 * 2, 450, 30);
-        webhook.setBorder(null);
+        webhook.setBounds(20, 165, 650, 35);
+        webhook.setBorder(BorderFactory.createLineBorder(new Color(32, 32, 32)));
         webhook.setCaretColor(Color.WHITE);
         webhook.addFocusListener(new FocusListener() {
             @Override
@@ -126,20 +123,17 @@ public class VrexiumGUI {
                     webhook.setText("");
                 }
             }
-
-
         });
 
-
         JButton inputButton = new JButton();
-        inputButton.setBounds(10 + 465, 55, 75, 30);
+        inputButton.setBounds(680, 65, 80, 35);
         inputButton.setText("Select");
-        inputButton.setForeground(Color.WHITE);
-        inputButton.setBackground(new Color(16, 16, 16));
-        inputButton.setBorder(null);
-        inputButton.setFont(label.getFont());
+        inputButton.setForeground(new Color(0xFF, 0x66, 0x7D));
+        inputButton.setBackground(new Color(32, 32, 32));
+        inputButton.setBorder(BorderFactory.createLineBorder(new Color(48, 48, 48)));
+        inputButton.setFont(new Font("Segoe UI", Font.BOLD, 14));
         inputButton.setFocusPainted(false);
-        inputButton.setContentAreaFilled(false);
+        inputButton.setContentAreaFilled(true);
 
         inputButton.addActionListener(new ActionListener() {
             @Override
@@ -158,14 +152,14 @@ public class VrexiumGUI {
         });
 
         JButton injectButton = new JButton();
-        injectButton.setBounds(frame.getWidth() / 2 - 75 / 2, frame.getHeight() - 80, 75, 30);
+        injectButton.setBounds(frame.getWidth() / 2 - 80 / 2, frame.getHeight() - 80, 80, 35);
         injectButton.setText("Inject");
-        injectButton.setForeground(Color.WHITE);
-        injectButton.setBackground(new Color(16, 16, 16));
-        injectButton.setBorder(null);
-        injectButton.setFont(label.getFont());
+        injectButton.setForeground(new Color(0xFF, 0x66, 0x7D));
+        injectButton.setBackground(new Color(32, 32, 32));
+        injectButton.setBorder(BorderFactory.createLineBorder(new Color(48, 48, 48)));
+        injectButton.setFont(new Font("Segoe UI", Font.BOLD, 14));
         injectButton.setFocusPainted(false);
-        injectButton.setContentAreaFilled(false);
+        injectButton.setContentAreaFilled(true);
 
         injectButton.addActionListener(new ActionListener() {
             @Override
@@ -181,8 +175,6 @@ public class VrexiumGUI {
                 args.add("--output");
                 args.add(output.getText());
 
-
-
                 String wh = webhook.getText();
                 if(!wh.equalsIgnoreCase("Discord Webhook")){
                     args.add("--webhook");
@@ -193,26 +185,16 @@ public class VrexiumGUI {
                 String[] s = args.toArray(new String[0]);
                 Injector.inject(input.getText(), output.getText(), new OptionsParser(s, Main.has, Main.bools));
                 JOptionPane.showMessageDialog(null, "Injected successfully!");
-
             }
         });
 
-        frame.add(input);
-        frame.add(inputButton);
-        frame.add(injectButton);
+        panel.add(input);
+        panel.add(inputButton);
+        panel.add(output);
+        panel.add(webhook);
+        panel.add(injectButton);
 
-        frame.add(output);
-        frame.add(webhook);
-
-
-        frame.setLayout(new BorderLayout());
-        frame.getContentPane().add(panel);
-
-
-
+        frame.add(panel);
         frame.setVisible(true);
-
-
     }
-
 }
