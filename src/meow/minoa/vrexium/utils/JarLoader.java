@@ -1,4 +1,4 @@
-package meow.minoa.vrexium.utils;
+package mrow.m1noa.vrexium.utils;
 
 import java.io.File;
 import java.io.InputStream;
@@ -124,4 +124,3 @@ public class JarLoader {
         this.classes.add(cn);
     }
 }
-

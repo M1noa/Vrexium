@@ -1,4 +1,2 @@
 Manifest-Version: 1.0
-Main-Class: meow.minoa.vrexium.Main
-Class-Path: .
-
+Main-Class: mrow.m1noa.vrexium.Main
