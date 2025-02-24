@@ -20,9 +20,7 @@ Once the plugin is enabled on a server, type `~vrex~` in the chat, to automatica
 If you want to access the CLI, use `java -jar injector.jar --nogui`
 
 ## Compiling
-You will need the following libraries: <br>
-- https://commons.apache.org/proper/commons-io/
-- https://asm.ow2.io/
+jave jdk 21 installed and run build.bat or build.sh
 
 ## Contributing
 Pull requests are highly welcomed and needed! As I have limited Java experience, community contributions are especially valuable. If you have Java expertise and want to help improve Vrexium, please consider contributing.
