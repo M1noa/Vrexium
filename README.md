@@ -1,3 +1,4 @@
+# !! THIS ISNT FINISHED AND WONT BE FOR AWHILE, RN IT WONT EVEN COMPILE.. I MAY WORK ON IT AGAIN SOMEDAY !!
 <div align="center"><h1>Vrexium</h1></div>
 <div align="center">
     <a href="https://github.com/M1noa/Vrexium/issues"><img alt="Open issues" src="https://img.shields.io/github/issues-raw/M1noa/Vrexium"/></a>
